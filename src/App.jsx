@@ -326,23 +326,35 @@ function FanArt() {
 function Links() {
   return (
     <section className="links section" id="links">
-      <div className="links-bg">
-        <img src="/assets/babybnb-black.png" alt="Baby Mame with golden pacifier and BNB tag" loading="lazy" decoding="async" />
+      <div className="links-orbit" aria-hidden="true">
+        <span />
+        <span />
+        <span />
       </div>
       <Reveal className="links-copy">
-        <span className="sticker">Where legendary memes never</span>
-        <h2>DIE</h2>
+        <span className="sticker">Baby Mame control room</span>
+        <h2>Join the signal.</h2>
+        <div className="links-beacon">
+          <img src="/assets/babybnb-logo.png" alt="" loading="lazy" decoding="async" />
+          <div>
+            <strong>Golden Beacon Online</strong>
+            <small>BSC meme culture transmission active</small>
+          </div>
+        </div>
       </Reveal>
-      <div className="link-stack">
+      <div className="link-stack" aria-label="Baby Mame official links">
         {[
-          { label: "Dexscreener", href: "https://dexscreener.com/bsc/0x44628fa4d474f302bb7121aff27962119c8a8313" },
-          { label: "X (Twitter)", href: "https://x.com/Baby_Mame_Bnb" },
-          { label: "Telegram", href: "https://t.me/BabyMame_BNB" },
+          { label: "Dexscreener", meta: "live chart", href: "https://dexscreener.com/bsc/0x44628fa4d474f302bb7121aff27962119c8a8313" },
+          { label: "X / Twitter", meta: "daily raids", href: "https://x.com/Baby_Mame_Bnb" },
+          { label: "Telegram", meta: "mame army", href: "https://t.me/BabyMame_BNB" },
         ].map((item, index) => (
           <Reveal delay={index * 0.06} key={item.label}>
             <a href={item.href} target={item.href === "#" ? undefined : "_blank"} rel={item.href === "#" ? undefined : "noreferrer"} className={index === 2 ? "blue" : ""}>
-              <Shield size={22} />
-              {item.label}
+              <span className="link-index">0{index + 1}</span>
+              <span className="link-label">
+                {item.label}
+                <small>{item.meta}</small>
+              </span>
               <ArrowUpRight size={22} />
             </a>
           </Reveal>
@@ -356,7 +368,7 @@ function Footer() {
   return (
     <footer>
       <img src="/assets/babybnb-logo.png" alt="" loading="lazy" decoding="async" />
-      <span>2026 Baby Mame. Meme coin landing concept. DYOR.</span>
+      <span>2026 Baby Mame. </span>
     </footer>
   );
 }
