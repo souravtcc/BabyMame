@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 const navItems = [
   ["Story", "#story"],
   ["Token", "#token"],
-  ["Fan Art", "#fan-art"],
+  ["Art", "#fan-art"],
   ["Links", "#links"],
 ];
 
@@ -287,7 +287,7 @@ function FanArt() {
 
       <div className="fan-hero-card fan-hero-card-clean">
         <Reveal className="fan-copy">
-          <span>FAN ART</span>
+          <span>ART</span>
           <h2>Our Some Arts</h2>
           <div className="fan-signal" aria-hidden="true">
             <span />
@@ -326,10 +326,8 @@ function FanArt() {
 function Links() {
   return (
     <section className="links section" id="links">
-      <div className="links-orbit" aria-hidden="true">
-        <span />
-        <span />
-        <span />
+      <div className="links-bg" aria-hidden="true">
+        <img src="/assets/babybnb-black.png" alt="" loading="lazy" decoding="async" />
       </div>
       <Reveal className="links-copy">
         <span className="sticker">Baby Mame control room</span>
