@@ -114,6 +114,13 @@ button {
   backdrop-filter: blur(15px);
 }
 
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: max-content;
+}
+
 .logo img {
   width: 58px;
   height: 58px;
@@ -122,6 +129,15 @@ button {
   border-radius: 999px;
   background: white;
   box-shadow: 3px 4px 0 #000;
+}
+
+.logo span {
+  color: var(--yellow);
+  font-size: clamp(1.05rem, 1.7vw, 1.55rem);
+  line-height: 0.92;
+  white-space: nowrap;
+  text-transform: uppercase;
+  text-shadow: 3px 4px 0 #000;
 }
 
 .navbar nav {
@@ -1069,6 +1085,16 @@ footer img {
     height: 52px;
   }
 
+  .logo {
+    gap: 0.55rem;
+  }
+
+  .logo span {
+    max-width: none;
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+
   .hero-bg::after {
     background:
       linear-gradient(180deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.58)),
@@ -1088,6 +1114,13 @@ footer img {
 
   h1 {
     font-size: clamp(4.8rem, 22vw, 7rem);
+    -webkit-text-stroke: 0;
+    text-shadow: 5px 6px 0 #000, 0 0 24px rgba(255, 197, 29, 0.38);
+  }
+
+  h2 {
+    -webkit-text-stroke: 0;
+    text-shadow: 4px 5px 0 #000;
   }
 
   .hero-card {
