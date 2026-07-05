@@ -71,9 +71,9 @@ function Loader() {
       transition={{ duration: 0.45, ease: "easeOut" }}
       aria-hidden={done}
     >
-      <img src="/assets/babybnb-logo.png" alt="" />
+      <img src="/assets/babybnb-logo.png" alt="" decoding="async" />
       <h2>BABY MAME</h2>
-      <span>loading meme waves...</span>
+      <span>loading...</span>
     </motion.div>
   );
 }
@@ -104,7 +104,8 @@ function Navbar() {
   return (
     <motion.header className="navbar" initial={{ y: -90 }} animate={{ y: 0 }} transition={{ delay: 1.2, type: "spring", stiffness: 90 }}>
       <a href="#top" className="logo" aria-label="Baby Mame home">
-        <img src="/assets/babybnb-logo.png" alt="Baby Mame logo" />
+        <img src="/assets/babybnb-logo.png" alt="Baby Mame logo" decoding="async" />
+        <span>Baby Mame</span>
       </a>
       <nav>
         {navItems.map(([label, href]) => (
@@ -132,7 +133,7 @@ function Hero() {
     <section className="hero" id="top">
       <div className="hero-bg">
         <div className="hero-parallax">
-          <img src="/assets/babybnb-surf.png" alt="Baby Mame surfing a giant wave" />
+          <img src="/assets/babybnb-surf.png" alt="Baby Mame surfing a giant wave" fetchPriority="high" decoding="async" />
         </div>
       </div>
       <div className="sunburst" />
@@ -267,8 +268,9 @@ function Token() {
 }
 
 function FanArt() {
-  const topRail = [...fanArt, ...fanArt];
-  const bottomRail = [...fanArt.slice().reverse(), ...fanArt.slice().reverse()];
+  const railArt = fanArt.slice(0, 8);
+  const topRail = [...railArt, ...railArt];
+  const bottomRail = [...railArt.slice().reverse(), ...railArt.slice().reverse()];
   const featuredArts = fanArt.slice(0, 6);
 
   return (
@@ -277,7 +279,7 @@ function FanArt() {
         <div className="fan-track">
           {topRail.map((src, index) => (
             <figure className="fan-frame" key={`top-${src}-${index}`}>
-              <img src={src} alt="" loading="lazy" />
+              <img src={src} alt="" loading="lazy" decoding="async" />
             </figure>
           ))}
         </div>
@@ -287,7 +289,12 @@ function FanArt() {
         <Reveal className="fan-copy">
           <span>FAN ART</span>
           <h2>Our Some Arts</h2>
-          <p>Baby Mame surfing, cooking, plotting the moon, buying the dip, and lighting up every green candle.</p>
+          <div className="fan-signal" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
         </Reveal>
         <div className="fan-collage" aria-label="Baby Mame art gallery">
           {featuredArts.map((src, index) => (
@@ -297,7 +304,7 @@ function FanArt() {
               whileHover={{ y: -10, rotate: index % 2 === 0 ? -2 : 2, scale: 1.03 }}
               transition={{ type: "spring", stiffness: 260, damping: 18 }}
             >
-              <img src={src} alt={`Baby Mame artwork ${index + 1}`} loading="lazy" />
+              <img src={src} alt={`Baby Mame artwork ${index + 1}`} loading="lazy" decoding="async" />
             </motion.figure>
           ))}
         </div>
@@ -307,7 +314,7 @@ function FanArt() {
         <div className="fan-track reverse">
           {bottomRail.map((src, index) => (
             <figure className="fan-frame" key={`bottom-${src}-${index}`}>
-              <img src={src} alt="" loading="lazy" />
+              <img src={src} alt="" loading="lazy" decoding="async" />
             </figure>
           ))}
         </div>
@@ -320,10 +327,10 @@ function Links() {
   return (
     <section className="links section" id="links">
       <div className="links-bg">
-        <img src="/assets/babybnb-black.png" alt="Baby Mame with golden pacifier and BNB tag" />
+        <img src="/assets/babybnb-black.png" alt="Baby Mame with golden pacifier and BNB tag" loading="lazy" decoding="async" />
       </div>
       <Reveal className="links-copy">
-        <span className="sticker">Where legendary memes never die</span>
+        <span className="sticker">Where legendary memes never</span>
         <h2>DIE</h2>
       </Reveal>
       <div className="link-stack">
@@ -348,7 +355,7 @@ function Links() {
 function Footer() {
   return (
     <footer>
-      <img src="/assets/babybnb-logo.png" alt="" />
+      <img src="/assets/babybnb-logo.png" alt="" loading="lazy" decoding="async" />
       <span>2026 Baby Mame. Meme coin landing concept. DYOR.</span>
     </footer>
   );

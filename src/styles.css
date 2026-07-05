@@ -315,6 +315,7 @@ h1 {
   line-height: 0.75;
   text-shadow: 8px 10px 0 #000, 0 0 35px rgba(255, 197, 29, 0.42);
   -webkit-text-stroke: clamp(2px, 0.55vw, 6px) #000;
+  paint-order: stroke fill;
   transform: skew(-6deg) rotate(-2deg);
 }
 
@@ -326,6 +327,7 @@ h2 {
   line-height: 0.86;
   text-shadow: 7px 8px 0 #000;
   -webkit-text-stroke: 2px #000;
+  paint-order: stroke fill;
   transform: rotate(-1deg);
 }
 
@@ -441,6 +443,8 @@ p {
   width: min(1240px, calc(100vw - 2rem));
   margin: 0 auto;
   padding: clamp(5rem, 9vw, 8rem) 0;
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
 }
 
 .section-title {
@@ -763,13 +767,6 @@ p {
   transform: rotate(-2deg);
 }
 
-.fan-copy p {
-  max-width: 430px;
-  color: #fff4c6;
-  font-size: clamp(1.05rem, 2vw, 1.35rem);
-  text-shadow: 2px 2px 0 #000;
-}
-
 .fan-collage {
   position: relative;
   z-index: 2;
@@ -818,6 +815,48 @@ p {
 
 .fan-collage-card:hover img {
   transform: scale(1.08);
+}
+
+.fan-signal {
+  display: flex;
+  align-items: end;
+  gap: 0.65rem;
+  height: 70px;
+  padding: 0.65rem 0.85rem;
+  border: 4px solid #000;
+  border-radius: 999px;
+  background: var(--yellow);
+  box-shadow: 7px 8px 0 #000;
+  transform: rotate(-1.4deg);
+}
+
+.fan-signal span {
+  display: block;
+  width: clamp(16px, 2.5vw, 28px);
+  border: 3px solid #000;
+  border-radius: 999px;
+  background: #0b0c10;
+  box-shadow: inset 0 0 0 4px rgba(255, 197, 29, 0.25);
+  animation: fanSignal 1.25s ease-in-out infinite;
+}
+
+.fan-signal span:nth-child(1) {
+  height: 28px;
+}
+
+.fan-signal span:nth-child(2) {
+  height: 48px;
+  animation-delay: 0.12s;
+}
+
+.fan-signal span:nth-child(3) {
+  height: 36px;
+  animation-delay: 0.24s;
+}
+
+.fan-signal span:nth-child(4) {
+  height: 58px;
+  animation-delay: 0.36s;
 }
 
 .links {
@@ -962,6 +1001,18 @@ footer img {
   }
 }
 
+@keyframes fanSignal {
+  0%,
+  100% {
+    transform: scaleY(0.72);
+    opacity: 0.78;
+  }
+  50% {
+    transform: scaleY(1.08);
+    opacity: 1;
+  }
+}
+
 @media (max-width: 1050px) {
   .navbar {
     grid-template-columns: 100px 1fr 180px;
@@ -1089,10 +1140,6 @@ footer img {
     font-size: clamp(3rem, 14vw, 5rem);
   }
 
-  .fan-copy p {
-    font-size: 1rem;
-  }
-
   .fan-collage {
     gap: 0.55rem;
   }
@@ -1106,6 +1153,16 @@ footer img {
   .fan-collage-card:nth-child(1),
   .fan-collage-card:nth-child(4) {
     grid-column: span 1;
+  }
+
+  .fan-signal {
+    height: 58px;
+    gap: 0.48rem;
+    padding: 0.5rem 0.7rem;
+  }
+
+  .fan-signal span {
+    width: 16px;
   }
 
   .links {
