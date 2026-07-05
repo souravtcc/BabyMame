@@ -15,6 +15,14 @@ const navItems = [
 ];
 
 const fanArt = [
+  "/assets/baby-mame-surf-new.png",
+  "/assets/baby-mame-temple.png",
+  "/assets/baby-mame-candles.png",
+  "/assets/baby-mame-chef.png",
+  "/assets/baby-mame-trader.png",
+  "/assets/baby-mame-moon-plan.png",
+  "/assets/baby-mame-buy-dip.png",
+  "/assets/baby-mame-room.png",
   "/assets/babybnb-yacht.png",
   "/assets/babybnb-park.png",
   "/assets/babybnb-mountain.png",
@@ -261,6 +269,7 @@ function Token() {
 function FanArt() {
   const topRail = [...fanArt, ...fanArt];
   const bottomRail = [...fanArt.slice().reverse(), ...fanArt.slice().reverse()];
+  const featuredArts = fanArt.slice(0, 6);
 
   return (
     <section className="fan section" id="fan-art">
@@ -276,9 +285,22 @@ function FanArt() {
 
       <div className="fan-hero-card fan-hero-card-clean">
         <Reveal className="fan-copy">
-          <span>ART</span>
-         
+          <span>FAN ART</span>
+          <h2>Our Some Arts</h2>
+          <p>Baby Mame surfing, cooking, plotting the moon, buying the dip, and lighting up every green candle.</p>
         </Reveal>
+        <div className="fan-collage" aria-label="Baby Mame art gallery">
+          {featuredArts.map((src, index) => (
+            <motion.figure
+              className={`fan-collage-card fan-collage-card-${index + 1}`}
+              key={`featured-${src}`}
+              whileHover={{ y: -10, rotate: index % 2 === 0 ? -2 : 2, scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 260, damping: 18 }}
+            >
+              <img src={src} alt={`Baby Mame artwork ${index + 1}`} loading="lazy" />
+            </motion.figure>
+          ))}
+        </div>
       </div>
 
       <div className="fan-rail fan-rail-bottom" aria-hidden="true">
