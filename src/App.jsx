@@ -344,7 +344,7 @@ function Links() {
         {[
           { label: "Dexscreener", meta: "live chart", href: "https://dexscreener.com/bsc/0x44628fa4d474f302bb7121aff27962119c8a8313" },
           { label: "X / Twitter", meta: "daily raids", href: "https://x.com/Baby_Mame_Bnb" },
-          { label: "Telegram", meta: "mame army", href: "https://t.me/BabyMame_BNB" },
+          { label: "Telegram", meta: "Baby Mame army", href: "https://t.me/BabyMame_BNB" },
         ].map((item, index) => (
           <Reveal delay={index * 0.06} key={item.label}>
             <a href={item.href} target={item.href === "#" ? undefined : "_blank"} rel={item.href === "#" ? undefined : "noreferrer"} className={index === 2 ? "blue" : ""}>
